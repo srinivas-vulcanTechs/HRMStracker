@@ -1,0 +1,82 @@
+.map-selection-absolute-container-1 {
+	position: absolute;
+	top: 100px;
+	left: 25%;
+	background-color: rgba(60, 52, 52, 0.751);
+	z-index: 99;
+	border-radius: 4px;
+	padding: 3px 5px;
+	color: white !important;
+}
+.map-selection-absolute-container-2 {
+	position: absolute;
+	top: 100px;
+	left: 40%;
+	background-color: rgba(60, 52, 52, 0.751);
+	z-index: 99;
+	border-radius: 4px;
+	padding: 3px 5px;
+	color: white !important;
+}
+.map-selection-absolute-container-3 {
+	position: absolute;
+	top: 100px;
+	left: 60%;
+	background-color: rgba(60, 52, 52, 0.751);
+	z-index: 99;
+	border-radius: 4px;
+	padding: 3px 5px;
+	color: white !important;
+}
+@media screen and (max-width: 1025px) {
+	.map-selection-absolute-container-1 {
+		top: 50%;
+		left: 10%;
+	}
+	.map-selection-absolute-container-2 {
+		top: 50%;
+		left: 25%;
+	}
+	.map-selection-absolute-container-3 {
+		top: 50%;
+		left: 45%;
+	}
+}
+@media screen and (max-width: 768px) {
+	.map-selection-absolute-container-1 {
+		left: 50px;
+	}
+	.map-selection-absolute-container-2 {
+		left: 150px;
+	}
+	.map-selection-absolute-container-3 {
+		left: 350px;
+	}
+}
+@media screen and (max-width: 426px) {
+	.map-selection-absolute-container-1 {
+		top: 50%;
+		left: 0px;
+	}
+	.map-selection-absolute-container-2 {
+		top: 50%;
+		right: 0px;
+	}
+	.map-selection-absolute-container-3 {
+		top: 55%;
+		left: 70px;
+	}
+}
+.marker-img {
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	z-index: 99;
+	height: 50px;
+	width: 30px;
+}
+@media screen and (max-width: 426px) {
+	.marker-img {
+		left: 200px;
+	}
+}

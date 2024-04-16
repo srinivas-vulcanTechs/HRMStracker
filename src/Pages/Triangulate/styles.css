@@ -1,0 +1,25 @@
+.search-bar-container {
+	position: absolute;
+	top: 50px;
+	left: 30%;
+	z-index: 99;
+}
+.select-fence-in-triangulate {
+	width: 400px;
+}
+@media screen and (max-width: 768px) {
+	.select-fence-in-triangulate {
+		width: 300px;
+	}
+	.search-bar-container {
+		left: 10%;
+	}
+}
+@media screen and (max-width: 426px) {
+	.select-fence-in-triangulate {
+		width: 150px;
+	}
+	.search-bar-container {
+		left: 10px;
+	}
+}
