@@ -26,7 +26,7 @@ export default function SideNav(props: SideNavProps) {
 					<div
 						style={{
 							paddingLeft: open
-								? "225px"
+								? "250px"
 								: mediumDevices
 								? "70px"
 								: smallDevices

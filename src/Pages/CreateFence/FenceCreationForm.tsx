@@ -11,6 +11,7 @@ const FenceCreationForm = (props: FenceCreationFormProps) => {
 				<form id="create-fence-form" onSubmit={formik.handleSubmit}>
 					<div className="form-group mb-2">
 						<input
+							name="place"
 							type="text"
 							placeholder="Search Place"
 							className={
@@ -27,6 +28,7 @@ const FenceCreationForm = (props: FenceCreationFormProps) => {
 					</div>
 					<div className="form-group mb-2">
 						<input
+							name="fenceName"
 							type="text"
 							placeholder="Fence Name"
 							className={
@@ -42,10 +44,10 @@ const FenceCreationForm = (props: FenceCreationFormProps) => {
 						)}
 					</div>
 					<div className="d-flex align-items-center gap-4">
-						<button className="btn btn-primary w-50" type="submit">
+						<button className="primary-button w-50" type="submit">
 							Save
 						</button>
-						<button className="btn btn-secondary w-50" type="reset">
+						<button className="secondary-button w-50" type="reset">
 							Clear
 						</button>
 					</div>

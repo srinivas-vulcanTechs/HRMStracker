@@ -80,7 +80,7 @@ const AssignUserForm = (props: AssignUserFormProps) => {
 							<div className="invalid-feedback">{formik.errors.user}</div>
 						)}
 					</div>
-					<button type="submit" className="btn btn-primary w-100">
+					<button type="submit" className="primary-button w-100">
 						Assign
 					</button>
 				</form>

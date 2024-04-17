@@ -9,7 +9,7 @@ const SearchBar = () => {
 					className="form-control select-fence-in-triangulate">
 					<option value="">Select a Fence Name</option>
 				</select>
-				<button className="btn btn-primary">Triangulate</button>
+				<button className="primary-button">Triangulate</button>
 			</div>
 		</React.Fragment>
 	);

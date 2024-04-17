@@ -5,6 +5,7 @@ import FenceCreationForm from "./FenceCreationForm";
 import "./styles.css";
 import AssignUserForm from "./AssignUserForm";
 import { useFormik } from "formik";
+import PolygonDrawer from "./PolygonDrawer";
 
 type CreateFenceValues = {
 	place: string;
@@ -73,6 +74,13 @@ export default function CreateFence() {
 		},
 		zoom: 11,
 	};
+
+	const [map, setMap] = React.useState<any>(null);
+
+	const handleApiLoaded = ({ map }: any) => {
+		setMap(map);
+	};
+
 	return (
 		<React.Fragment>
 			<div className="relative-container">
@@ -80,7 +88,11 @@ export default function CreateFence() {
 				<GoogleMapReact
 					bootstrapURLKeys={{ key: "" }}
 					defaultCenter={defaultProps.center}
-					defaultZoom={defaultProps.zoom}></GoogleMapReact>
+					defaultZoom={defaultProps.zoom}
+					yesIWantToUseGoogleMapApiInternals
+					onGoogleApiLoaded={({ map }: any) => handleApiLoaded(map)}>
+					{map && <PolygonDrawer map={map} />}
+				</GoogleMapReact>
 				<AssignUserForm formik={assignUserFormik} />
 			</div>
 		</React.Fragment>

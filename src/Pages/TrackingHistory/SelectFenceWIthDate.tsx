@@ -22,16 +22,16 @@ const SelectFenceWIthDate = () => {
 	return (
 		<React.Fragment>
 			<div className="select-bar-container d-md-flex align-items-center gap-2">
-				<select name="fence-name" className="form-control mb-2" id="">
+				<select name="fence-name" className="form-control" id="">
 					<option value="">select a Fence Name</option>
 				</select>
-				<div className="bg-white mb-2">
+				<div className="bg-white">
 					<DatePicker value={value} onChange={onChange} />
 				</div>
-				<div className="bg-white mb-2">
+				<div className="bg-white">
 					<TimePicker value={time} onChange={handleTimeChange} />
 				</div>
-				<button className="btn btn-primary w-100">Location History</button>
+				<button className="primary-button w-100">Location History</button>
 			</div>
 		</React.Fragment>
 	);

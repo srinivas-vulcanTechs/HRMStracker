@@ -27,7 +27,7 @@ const Navbar = () => {
 			<div
 				style={{
 					left: open
-						? "225px"
+						? "250px"
 						: mediumDevices
 						? "70px"
 						: smallDevices
@@ -54,6 +54,7 @@ const Navbar = () => {
 
 				<div className="right-container">
 					<BsFullscreen fontSize={25} style={{ cursor: "pointer" }} />
+					<div className="admin-avatar"></div>
 				</div>
 			</div>
 		</React.Fragment>

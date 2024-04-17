@@ -43,7 +43,7 @@ const SelectFenceForm = (props: SelectFenceFormProps) => {
 						)}
 					</div>
 					<div className="d-flex align-items-center gap-4">
-						<button className="btn btn-primary w-100">Search</button>
+						<button className="primary-button w-100">Search</button>
 					</div>
 				</form>
 			</div>
