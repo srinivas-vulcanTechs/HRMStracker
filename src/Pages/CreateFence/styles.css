@@ -8,26 +8,24 @@
 	left: 10px;
 	top: 50px;
 	width: 250px;
-	background-color: rgba(60, 52, 52, 0.751);
+	background-color: rgba(255, 255, 255, 0.751);
 	z-index: 99;
 	border-radius: 9px;
 	padding: 15px;
 }
 .create-fields {
 	border: 1px solid grey;
-	background-color: transparent !important;
-	color: white !important;
+	background-color: rgba(236, 234, 234, 0.681) !important;
+	color: black !important;
 	box-shadow: none !important;
 }
-.form-control::placeholder {
-	color: white !important;
-}
+
 .absolute-container-2 {
 	position: absolute;
-	right: 10px;
+	right: 40px;
 	bottom: 100px;
 	width: 300px;
-	background-color: rgba(60, 52, 52, 0.751);
+	background-color: rgba(255, 255, 255, 0.751);
 	z-index: 99;
 	border-radius: 9px;
 	padding: 15px;

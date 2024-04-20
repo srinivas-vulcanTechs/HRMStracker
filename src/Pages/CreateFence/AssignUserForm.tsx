@@ -9,7 +9,7 @@ const AssignUserForm = (props: AssignUserFormProps) => {
 		<React.Fragment>
 			<div className="absolute-container-2">
 				<form id="assign-user-form" onSubmit={formik.handleSubmit}>
-					<div className="mb-3 text-decoration-underline fs-5 fw-bold text-white">
+					<div className="mb-3 text-decoration-underline fs-5 fw-bold text-black">
 						Assign User to Fence
 					</div>
 					<div className="form-group mb-3">

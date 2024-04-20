@@ -83,7 +83,7 @@ export default function ClockInOutCards(props: ClockInOutCardProps) {
 								alt=""
 								style={{ height: "50px", width: "50px", borderRadius: "50%" }}
 							/>
-							<div className="text-white">
+							<div className="">
 								<div className="">
 									<p className="fw-bold">{item.name}</p> has{" "}
 									{item.clockIn ? "Clocked In" : "Clocked Out"} at{" "}

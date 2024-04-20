@@ -1,144 +1,7 @@
-// import React from "react";
-// import { IoCreateOutline } from "react-icons/io5";
-// import { MdOutlineSpatialTracking } from "react-icons/md";
-// import { LuTriangleRight, LuHistory } from "react-icons/lu";
-
-// import "./styles.css";
-import trackerLogo from "../../Assets/Images/logo.png";
-// import { NavLink } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../Redux/Reducers";
-// import { useMediaQuery } from "react-responsive";
-
-// const Sidebar = () => {
-// 	const mediumDevices = useMediaQuery({ query: "(min-width: 1023px)" });
-// 	const smallDevices = useMediaQuery({ query: "(min-width: 760px)" });
-// 	const mobileDevices = useMediaQuery({ query: "(min-width: 320px)" });
-// 	const allSmallerDevices = useMediaQuery({ query: "(max-width:768px)" });
-// 	const { open } = useSelector((state: RootState) => state.toggleSidebar);
-// 	return (
-// 		<React.Fragment>
-// 			<div
-// 				style={{
-// 					width: open
-// 						? "250px"
-// 						: mediumDevices
-// 						? "70px"
-// 						: smallDevices
-// 						? "65px"
-// 						: mobileDevices
-// 						? "50px"
-// 						: "70px",
-// 				}}
-// 				className={"sidebar-container"}>
-// 				<div className="logo-container">
-// 					<img src={trackerLogo} alt="" className="sidebar-logo" />
-// 				</div>
-// 				<div className="company-name-container">
-// 					{mediumDevices && open && (
-// 						<div
-// 							style={{ height: "60px", width: "60px" }}
-// 							className="company-logo"></div>
-// 					)}
-// 					{allSmallerDevices && <div className="company-logo"></div>}
-// 					{!open && mediumDevices && <div className="company-logo"></div>}
-// 					<h5
-// 						style={{ display: open ? "block" : "none" }}
-// 						className="company-name">
-// 						Vulcan Admin
-// 					</h5>
-// 					<p style={{ display: open ? "block" : "none" }} className="role">
-// 						Administrator
-// 					</p>
-// 				</div>
-// 				<div className="">
-// 					<NavLink
-// 						to="/"
-// 						style={{ textDecoration: "none" }}
-// 						className={({ isActive }) =>
-// 							isActive ? "active-link link" : "link"
-// 						}>
-// 						<div className="link-row">
-// 							<IoCreateOutline
-// 								color="303539"
-// 								fontSize={open ? 20 : 22}
-// 								style={{ color: open ? "#303539" : "#080808" }}
-// 							/>
-// 							<p
-// 								style={{ display: open ? "block" : "none" }}
-// 								className="link-text">
-// 								Create Fence
-// 							</p>
-// 						</div>
-// 					</NavLink>
-// 					<NavLink
-// 						to="/tracking"
-// 						style={{ textDecoration: "none" }}
-// 						className={({ isActive }) =>
-// 							isActive ? "active-link link" : "link"
-// 						}>
-// 						<div className="link-row">
-// 							<MdOutlineSpatialTracking
-// 								color="303539"
-// 								fontSize={open ? 20 : 22}
-// 								style={{ color: open ? "#303539" : "#080808" }}
-// 							/>
-// 							<p
-// 								style={{ display: open ? "block" : "none" }}
-// 								className="link-text">
-// 								Tracking
-// 							</p>
-// 						</div>
-// 					</NavLink>
-// 					<NavLink
-// 						to="/triangulate"
-// 						style={{ textDecoration: "none" }}
-// 						className={({ isActive }) =>
-// 							isActive ? "active-link link" : "link"
-// 						}>
-// 						<div className="link-row">
-// 							<LuTriangleRight
-// 								color="303539"
-// 								fontSize={open ? 20 : 22}
-// 								style={{ color: open ? "#303539" : "#080808" }}
-// 							/>
-// 							<p
-// 								style={{ display: open ? "block" : "none" }}
-// 								className="link-text">
-// 								Triangulate
-// 							</p>
-// 						</div>
-// 					</NavLink>
-// 					<NavLink
-// 						to="/tracking-history"
-// 						style={{ textDecoration: "none" }}
-// 						className={({ isActive }) =>
-// 							isActive ? "active-link link" : "link"
-// 						}>
-// 						<div className="link-row">
-// 							<LuHistory
-// 								color="303539"
-// 								fontSize={open ? 20 : 22}
-// 								style={{ color: open ? "#303539" : "#080808" }}
-// 							/>
-// 							<p
-// 								style={{ display: open ? "block" : "none" }}
-// 								className="link-text">
-// 								Create Fence
-// 							</p>
-// 						</div>
-// 					</NavLink>
-// 				</div>
-// 			</div>
-// 		</React.Fragment>
-// 	);
-// };
-
-// export default Sidebar;
-
 import React, { useState, useEffect } from "react";
 import { IoCreateOutline } from "react-icons/io5";
 import { MdOutlineSpatialTracking } from "react-icons/md";
+import trackerLogo from "../../Assets/Images/logo.png";
 import { LuTriangleRight, LuHistory } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -180,7 +43,7 @@ const Sidebar = () => {
 			<div className="company-name-container">
 				{mediumDevices && open && (
 					<div
-						style={{ height: "60px", width: "60px" }}
+						style={{ height: "70px", width: "70px" }}
 						className="company-logo"></div>
 				)}
 				{allSmallerDevices && <div className="company-logo"></div>}
@@ -205,7 +68,9 @@ const Sidebar = () => {
 						<IoCreateOutline
 							color="303539"
 							fontSize={open ? 20 : 22}
-							style={{ color: open ? "#303539" : "#080808" }}
+							style={{
+								color: open ? "#303539" : "#080808",
+							}}
 						/>
 						<p
 							style={{ display: open ? "block" : "none" }}

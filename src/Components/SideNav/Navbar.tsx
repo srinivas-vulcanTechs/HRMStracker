@@ -53,7 +53,10 @@ const Navbar = () => {
 				</div>
 
 				<div className="right-container">
-					<BsFullscreen fontSize={25} style={{ cursor: "pointer" }} />
+					<BsFullscreen
+						fontSize={16}
+						style={{ cursor: "pointer", color: "#080808" }}
+					/>
 					<div className="admin-avatar"></div>
 				</div>
 			</div>

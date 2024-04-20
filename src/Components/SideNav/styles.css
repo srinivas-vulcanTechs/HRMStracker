@@ -2,7 +2,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 15px;
 	width: 100%;
 }
 .sidebar-logo {
@@ -15,7 +14,9 @@
 	top: 0;
 	bottom: 0;
 	background-color: #f8fffd;
-	transition: width 0.3s ease;
+	transition: all 0.3s ease-in-out;
+	opacity: 1, 0;
+	transform: translateX(calc((0, 0) * -100%));
 }
 .navbar-outlet-container {
 	width: 100%;
@@ -25,7 +26,7 @@
 .outlet-container {
 	height: 100%;
 	overflow-y: scroll;
-	padding-top: 50px;
+	padding-top: 70px;
 }
 .company-name-container {
 	display: flex;
@@ -38,14 +39,16 @@
 .company-logo {
 	height: 50px;
 	width: 50px;
-	background-color: grey;
-	border-radius: 9px;
+	background-color: rgb(187, 183, 183);
+	border-radius: 15px;
+	margin-bottom: 10px;
+	box-shadow: 1px -1px -1px 0px grey;
 }
 .company-name {
-	font-size: 17px;
-	font-weight: 600;
-	color: rgb(57, 55, 55);
-	margin: 0 0 !important;
+	font-size: 15px;
+	font-weight: 700;
+	color: rgb(18, 16, 16);
+	margin-bottom: 5px;
 }
 .role {
 	font-size: 12px;
@@ -66,6 +69,7 @@
 	gap: 15px;
 	padding: 10px 20px;
 	margin: 0 0 !important;
+	font-weight: 800 !important;
 }
 .link-text {
 	margin: 0 0 !important;
@@ -89,7 +93,7 @@
 .search-bar {
 	height: 40px;
 	width: 200px;
-	background-color: rgb(241, 241, 241);
+	background-color: rgb(244, 243, 243);
 	border: none;
 	border-radius: 4px;
 	padding: 0 15px;

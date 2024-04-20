@@ -10,7 +10,7 @@
 }
 .clock-in-out-card {
 	width: 300px;
-	background-color: rgba(60, 52, 52, 0.751);
+	background-color: rgba(255, 255, 255, 0.751);
 }
 @media screen and (max-width: 426px) {
 	.absolute-overflow-container {
