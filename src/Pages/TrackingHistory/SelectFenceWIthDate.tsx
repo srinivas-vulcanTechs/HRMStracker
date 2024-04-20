@@ -21,7 +21,7 @@ const SelectFenceWIthDate = () => {
 	};
 	return (
 		<React.Fragment>
-			<div className="select-bar-container d-md-flex align-items-center gap-2">
+			<div className="select-bar-container">
 				<select name="fence-name" className="form-control" id="">
 					<option value="">select a Fence Name</option>
 				</select>

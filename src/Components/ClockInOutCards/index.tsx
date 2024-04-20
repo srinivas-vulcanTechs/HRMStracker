@@ -85,7 +85,7 @@ export default function ClockInOutCards(props: ClockInOutCardProps) {
 							/>
 							<div className="">
 								<div className="">
-									<p className="fw-bold">{item.name}</p> has{" "}
+									<b>{item.name}</b> has{" "}
 									{item.clockIn ? "Clocked In" : "Clocked Out"} at{" "}
 									{item.date.toString()}
 								</div>

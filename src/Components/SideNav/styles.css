@@ -13,10 +13,11 @@
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	background-color: #f8fffd;
+	background-color: #ffffff;
 	transition: all 0.3s ease-in-out;
 	opacity: 1, 0;
 	transform: translateX(calc((0, 0) * -100%));
+	box-shadow: 1px 1px 1px 1px grey;
 }
 .navbar-outlet-container {
 	width: 100%;
@@ -43,6 +44,17 @@
 	border-radius: 15px;
 	margin-bottom: 10px;
 	box-shadow: 1px -1px -1px 0px grey;
+}
+@media screen and (max-width: 427px) {
+	.company-logo {
+		height: 25px;
+		width: 25px;
+		border-radius: 8px;
+	}
+	.sidebar-logo {
+		height: 50px;
+		width: 50px;
+	}
 }
 .company-name {
 	font-size: 15px;

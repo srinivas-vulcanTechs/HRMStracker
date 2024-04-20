@@ -10,7 +10,94 @@ import { useMediaQuery } from "react-responsive";
 import { useFormik } from "formik";
 import AssignUserForm from "./AssignUserForm";
 import "./styles.css";
+import UsersList from "../../Components/UsersList";
 
+const dummyUsers = [
+	{
+		id: 1,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 2,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 3,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 4,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 5,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 6,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 7,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 8,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 9,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 19,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 11,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 12,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 13,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+	{
+		id: 14,
+		name: "Sia Soul",
+		profilePicture:
+			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
+	},
+];
 const center = {
 	lat: 20.5937,
 	lng: 78.9629,
@@ -112,7 +199,7 @@ function CreateFence() {
 	});
 
 	return isLoaded ? (
-		<div className="relative-container">
+		<div className="relative-container p-lg-4 p-md-2">
 			<FenceCreationForm formik={createFenceFormik} />
 			<GoogleMap
 				mapContainerStyle={{
@@ -154,6 +241,11 @@ function CreateFence() {
 				))}
 			</GoogleMap>
 			<AssignUserForm formik={assignUserFormik} />
+			<div className="users-list-container">
+				{dummyUsers.map((user, idx) => {
+					return <UsersList key={idx} user={user} />;
+				})}
+			</div>
 		</div>
 	) : (
 		<></>

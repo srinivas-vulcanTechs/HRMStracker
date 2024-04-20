@@ -1,7 +1,7 @@
 .absolute-overflow-container {
 	position: absolute;
 	top: 100px;
-	right: 15px;
+	right: 50px;
 	overflow-y: scroll;
 	z-index: 199;
 }
@@ -10,7 +10,8 @@
 }
 .clock-in-out-card {
 	width: 300px;
-	background-color: rgba(255, 255, 255, 0.751);
+	background-color: rgb(255, 255, 255);
+	box-shadow: 1px 2px 3px 1px rgb(179, 172, 172);
 }
 @media screen and (max-width: 426px) {
 	.absolute-overflow-container {

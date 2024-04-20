@@ -59,8 +59,9 @@ export default function Triangulate() {
 	return (
 		<React.Fragment>
 			{isLoaded && (
-				<div className="relative-container">
+				<div className="relative-container p-lg-4 p-md-2">
 					<SearchBar />
+
 					<GoogleMap
 						mapContainerStyle={{
 							height: smallDevices ? "150vh" : "100vh",
