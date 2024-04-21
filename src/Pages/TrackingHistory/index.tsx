@@ -75,6 +75,7 @@ export default function TrackingHistory() {
 								: largeDevices
 								? "1440px"
 								: "",
+							borderRadius: "9px",
 						}}
 						center={center}
 						zoom={2}

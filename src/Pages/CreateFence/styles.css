@@ -5,8 +5,8 @@
 }
 .absolute-container {
 	position: absolute;
-	left: 30px;
-	top: 60px;
+	left: 40px;
+	top: 90px;
 	width: 250px;
 	background-color: rgb(255, 255, 255);
 	z-index: 99;
@@ -24,7 +24,7 @@
 .absolute-container-2 {
 	position: absolute;
 	right: 40px;
-	bottom: 100px;
+	bottom: 30%;
 	width: 300px;
 	background-color: rgba(255, 255, 255, 0.999);
 	z-index: 99;
@@ -47,7 +47,7 @@
 .users-list-container {
 	position: absolute;
 	top: 300px;
-	left: 30px;
+	left: 40px;
 	height: 400px;
 	overflow-y: scroll;
 	width: 250px;

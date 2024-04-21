@@ -74,6 +74,7 @@ export default function Triangulate() {
 								: largeDevices
 								? "1440px"
 								: "",
+							borderRadius: "9px",
 						}}
 						center={center}
 						zoom={3}

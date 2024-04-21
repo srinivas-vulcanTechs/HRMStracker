@@ -211,6 +211,7 @@ function CreateFence() {
 						? "100%"
 						: largeDevices && "100%",
 					height: smallDevices ? "150vh" : "100vh",
+					borderRadius: "9px",
 				}}
 				center={center}
 				zoom={5}

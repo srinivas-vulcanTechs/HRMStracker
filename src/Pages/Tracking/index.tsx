@@ -112,6 +112,7 @@ export default function Tracking() {
 								: largeDevices
 								? "1440px"
 								: "",
+							borderRadius: "9px",
 						}}
 						center={center}
 						zoom={3}

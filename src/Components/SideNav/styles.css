@@ -14,10 +14,6 @@
 	top: 0;
 	bottom: 0;
 	background-color: #ffffff;
-	transition: all 0.3s ease-in-out;
-	opacity: 1, 0;
-	transform: translateX(calc((0, 0) * -100%));
-	box-shadow: 1px 1px 1px 1px grey;
 }
 .navbar-outlet-container {
 	width: 100%;
@@ -93,7 +89,7 @@
 	top: 0;
 	right: 0;
 	background-color: #ffffff;
-	height: 10vh;
+	height: 9vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

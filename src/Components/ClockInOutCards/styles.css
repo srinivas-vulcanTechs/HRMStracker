@@ -1,9 +1,9 @@
 .absolute-overflow-container {
 	position: absolute;
-	top: 100px;
-	right: 50px;
+	top: 80px;
+	right: 40px;
 	overflow-y: scroll;
-	z-index: 199;
+	z-index: 99;
 }
 .absolute-overflow-container::-webkit-scrollbar {
 	display: none;
