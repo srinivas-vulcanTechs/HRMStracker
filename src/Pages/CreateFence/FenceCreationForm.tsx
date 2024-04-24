@@ -1,27 +1,85 @@
 import React from "react";
+import PlacesAutocomplete, {
+	geocodeByAddress,
+	getLatLng,
+} from "react-places-autocomplete";
 
 type FenceCreationFormProps = {
 	formik: any;
+	allShapes: {
+		lat: number;
+		lng: number;
+	}[];
+	setAllShapes: any;
+	setAllMarkers: any;
+	map: any;
+	address: string;
+	setAddress: any;
 };
 const FenceCreationForm = (props: FenceCreationFormProps) => {
-	const { formik } = props;
+	const {
+		formik,
+		allShapes,
+		setAllShapes,
+		setAllMarkers,
+		map,
+		address,
+		setAddress,
+	} = props;
+
+	const handleSelect = async (selectedAddress: any) => {
+		setAddress(selectedAddress);
+		try {
+			const results = await geocodeByAddress(selectedAddress);
+			const latLng = await getLatLng(results[0]);
+			console.log("Lat lng:", latLng);
+			map.setCenter(latLng);
+		} catch (error) {
+			console.error("Error", error);
+		}
+	};
+
 	return (
 		<React.Fragment>
 			<div className="absolute-container">
 				<form id="create-fence-form" onSubmit={formik.handleSubmit}>
 					<div className="form-group mb-2">
-						<input
-							name="place"
-							type="text"
-							placeholder="Search Place"
-							className={
-								formik.errors.place && formik.touched.place
-									? "is-invalid form-control create-fields"
-									: "form-control create-fields"
-							}
-							value={formik.values.place}
-							onChange={formik.handleChange}
-						/>
+						<PlacesAutocomplete
+							value={address}
+							onChange={setAddress}
+							onSelect={handleSelect}>
+							{({
+								getInputProps,
+								suggestions,
+								getSuggestionItemProps,
+								loading,
+							}) => (
+								<div>
+									<input
+										{...getInputProps({
+											placeholder: "Search Place",
+											className:
+												formik.errors.place && formik.touched.place
+													? "is-invalid form-control create-fields"
+													: "form-control create-fields",
+										})}
+									/>
+									<div>
+										{loading ? <div>Loading...</div> : null}
+										{suggestions.map((suggestion, idx) => {
+											const style = {
+												backgroundColor: suggestion.active ? "#41b6e6" : "#fff",
+											};
+											return (
+												<div {...getSuggestionItemProps(suggestion, { style })}>
+													{suggestion.description}
+												</div>
+											);
+										})}
+									</div>
+								</div>
+							)}
+						</PlacesAutocomplete>
 						{formik.errors.place && formik.touched.place && (
 							<div className="invalid-feedback">{formik.errors.place}</div>
 						)}
@@ -44,10 +102,19 @@ const FenceCreationForm = (props: FenceCreationFormProps) => {
 						)}
 					</div>
 					<div className="d-flex align-items-center gap-4">
-						<button className="primary-button w-50" type="submit">
+						<button
+							disabled={allShapes.length === 0}
+							className="primary-button w-50"
+							type="submit">
 							Save
 						</button>
-						<button className="secondary-button w-50" type="reset">
+						<button
+							onClick={() => {
+								setAllShapes([]);
+								setAllMarkers([]);
+							}}
+							className="secondary-button w-50"
+							type="reset">
 							Clear
 						</button>
 					</div>

@@ -76,7 +76,7 @@ export default function ClockInOutCards(props: ClockInOutCardProps) {
 				{usersClockInOut.map((item, idx) => {
 					return (
 						<div
-							className="clock-in-out-card  mb-3 d-flex align-items-center gap-2 p-2 rounded"
+							className="clock-in-out-card  mb-2 d-flex align-items-center gap-2 p-2 rounded"
 							key={idx}>
 							<img
 								src={img ? img : item.profilePicture}

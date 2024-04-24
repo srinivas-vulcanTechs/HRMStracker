@@ -10,105 +10,26 @@ import { useMediaQuery } from "react-responsive";
 import { useFormik } from "formik";
 import AssignUserForm from "./AssignUserForm";
 import "./styles.css";
-import UsersList from "../../Components/UsersList";
+import { useDispatch, useSelector } from "react-redux";
+import { assignUserToFence, createFence } from "../../Redux/Actions/fence";
+import toast from "react-hot-toast";
 
-const dummyUsers = [
-	{
-		id: 1,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 2,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 3,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 4,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 5,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 6,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 7,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 8,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 9,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 19,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 11,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 12,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 13,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-	{
-		id: 14,
-		name: "Sia Soul",
-		profilePicture:
-			"https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713139200&semt=ais",
-	},
-];
 const center = {
 	lat: 20.5937,
 	lng: 78.9629,
 };
 
 function CreateFence() {
+	const dispatch = useDispatch();
+
+	const { success, message, error } = useSelector((state) => state.fence);
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: "AIzaSyDMUBcXRG08RcGle0no7luNMqiozxyrH6k",
 	});
 	const [map, setMap] = React.useState(null);
+	const [address, setAddress] = React.useState("");
+	const [fenceCreated, setFenceCreated] = React.useState(false);
 
 	const mediumDevices = useMediaQuery({ query: "(max-width: 1025px)" });
 	const smallDevices = useMediaQuery({ query: "(max-width: 760px)" });
@@ -137,7 +58,7 @@ function CreateFence() {
 		// Update state with new markers and shapes
 		setAllMarkers([...allMarkers, newMarkers]);
 		setAllShapes(newShapes);
-		console.log(allShapes, allMarkers);
+		console.log(allShapes);
 	};
 
 	const onLoad = React.useCallback(function callback(map) {
@@ -153,23 +74,38 @@ function CreateFence() {
 
 	const createFenceFormik = useFormik({
 		initialValues: {
-			place: "",
 			fenceName: "",
 		},
 		validate: (values) => {
 			let errors = {};
-			if (!values.place) {
-				errors.place = "Place is required";
-			}
 			if (!values.fenceName) {
 				errors.fenceName = "Fence Name is required";
 			}
 			return errors;
 		},
-		onSubmit: (values) => {
-			console.log(values);
+		onSubmit: (values, { resetForm }) => {
+			const body = {
+				name: values.fenceName,
+				paths: allShapes,
+				place: address,
+			};
+			dispatch(createFence(body));
+			resetForm();
 		},
 	});
+
+	React.useEffect(() => {
+		if (success && message?.includes("Successfully")) {
+			toast.success(message);
+			setAllShapes([]);
+			setAllMarkers([]);
+			setAddress("");
+			setFenceCreated(!fenceCreated);
+		} else if (message === "Failed to create fence") {
+			toast.error(message);
+		}
+	}, [success, message]);
+
 	const assignUserFormik = useFormik({
 		initialValues: {
 			fenceName: "",
@@ -193,14 +129,29 @@ function CreateFence() {
 			}
 			return errors;
 		},
-		onSubmit: (values) => {
-			console.log(values);
+		onSubmit: (values, { resetForm }) => {
+			const body = {
+				fenceName: values.fenceName,
+				branch: values.branch,
+				department: values.department,
+				username: values.user,
+			};
+			dispatch(assignUserToFence(body));
+			resetForm();
 		},
 	});
 
 	return isLoaded ? (
 		<div className="relative-container p-lg-4 p-md-2">
-			<FenceCreationForm formik={createFenceFormik} />
+			<FenceCreationForm
+				map={map}
+				setAllShapes={setAllShapes}
+				allShapes={allShapes}
+				formik={createFenceFormik}
+				setAllMarkers={setAllMarkers}
+				address={address}
+				setAddress={setAddress}
+			/>
 			<GoogleMap
 				mapContainerStyle={{
 					width: mediumDevices
@@ -214,7 +165,7 @@ function CreateFence() {
 					borderRadius: "9px",
 				}}
 				center={center}
-				zoom={5}
+				zoom={7.5}
 				onLoad={onLoad}
 				onUnmount={onUnmount}
 				onClick={handleMapClick}>
@@ -241,12 +192,7 @@ function CreateFence() {
 					</React.Fragment>
 				))}
 			</GoogleMap>
-			<AssignUserForm formik={assignUserFormik} />
-			<div className="users-list-container">
-				{dummyUsers.map((user, idx) => {
-					return <UsersList key={idx} user={user} />;
-				})}
-			</div>
+			<AssignUserForm fenceCreated={fenceCreated} formik={assignUserFormik} />
 		</div>
 	) : (
 		<></>
